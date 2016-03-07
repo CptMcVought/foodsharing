@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html>
+
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <title>ERSTE SCHRITTE MIT BRACKETS</title>
+        <meta name="description" content="Ein interaktiver Wegweiser für die ersten Schritte mit Brackets.">
+        <script type="text/javascript" src="sheet/jquery-2.1.4.min.js"></script>
+        <script type="text/javascript">
+            $(document).ready(function() {
+                $("#form_1").submit(function() {
+                    
+                    $.ajax({
+                                        type: "POST",
+                                        url: "sendoffer.php",
+                                        data: "&type=" + $("#type").val() + "&lon=" + $("#lon").val() + "&lat=" + $("#lon").val() + "&dish=" + $("#dish").val() + "&description=" + $("#description").val() + "&user_id=" + $("#user_id").val() + "&user_name=" + $("#user_name").val() + "&start_time=" + $("#start_time").val() + "&end_time=" + $("#end_time").val()  + "&price=" + $("#price").val()  + "&persons=" + $("#persons").val(),
+                                        success: function(msg)
+                                        {
+                                            alert(msg);
+                                        }
+                                    });
+                });
+                return false;
+            });
+        </script>
+    </head>
+    <body>
+        
+        
+        
+        <form id="form_1" >
+            
+            <label for="vorname">Type: </label> 
+            <input type="text" id="type" maxlength="20"><br>
+
+            <label for="zuname">Longitude: </label>  
+            <input type="number" id="lon" maxlength="40"><br>
+            
+            <label for="zuname">Latidude: </label>  
+            <input type="number" id="lat" maxlength="40"><br>
+            
+            <label for="vorname">Dish: </label> 
+            <input type="text" id="dish" maxlength="20"><br>
+            
+            <label for="vorname">Description: </label> 
+            <input type="text" id="description" maxlength="250"><br>
+            
+            <label for="vorname">User ID: </label> 
+            <input type="number" id="user_id" maxlength="20"><br>
+            
+            <label for="vorname">Username: </label> 
+            <input type="text" id="user_name" maxlength="20"><br>
+            
+            <label for="vorname">Starttime: </label> 
+            <input type="datetime" id="start_time" maxlength="20"><br>
+            
+            <label for="vorname">Endtime: </label> 
+            <input type="datetime" id="end_time" maxlength="20"><br>
+            
+            <label for="vorname">Price: </label> 
+            <input type="number" id="price" maxlength="20"><br>
+            
+            <label for="vorname">Persons: </label> 
+            <input type="number" id="persons" maxlength="20"><br>
+
+            <button type="submit">Eingaben absenden</button>
+        </form>
+        
+        
+        
+    </body>
+</html>

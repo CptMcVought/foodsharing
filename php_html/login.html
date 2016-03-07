@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html>
+
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <title>ERSTE SCHRITTE MIT BRACKETS</title>
+        <meta name="description" content="Ein interaktiver Wegweiser für die ersten Schritte mit Brackets.">
+        <script type="text/javascript" src="sheet/jquery-2.1.4.min.js"></script>
+        <script type="text/javascript">
+           
+           $( document ).ready(function() {
+            $("#form_1").submit(function() {
+
+	document.getElementById("demo").innerHTML = "Bitte warten...";
+	
+	
+
+
+    var send = "email=" + $("#email").val() + "&password=" + $("#password").val();
+    var xmlhttp = new XMLHttpRequest();
+    xmlhttp.onreadystatechange = function() {
+        if (xmlhttp.readyState == 4 && xmlhttp.status == 200) {
+            document.getElementById("demo").innerHTML = xmlhttp.responseText;
+        }
+    };
+    xmlhttp.open("POST", "login.php" , true);
+    xmlhttp.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
+    xmlhttp.send(send);
+
+return false;
+		
+	});
+});
+	
+        </script>
+    </head>
+    <body>
+        
+        
+        
+        <form id="form_1" >
+
+            <h1 id="demo">Login</h1>
+            
+
+            <label for="vorname">Email: </label> 
+            <input type="text" id="email" maxlength="20"><br>
+
+            <label for="vorname">Password: </label> 
+            <input type="password" id="password" maxlength="20"><br>
+
+            <input type="submit" value="subi">
+
+        </form>
+        
+        
+        
+    </body>
+</html>

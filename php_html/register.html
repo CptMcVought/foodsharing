@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html>
+
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <title>ERSTE SCHRITTE MIT BRACKETS</title>
+        <meta name="description" content="Ein interaktiver Wegweiser für die ersten Schritte mit Brackets.">
+        <script type="text/javascript" src="sheet/jquery-2.1.4.min.js"></script>
+        <script type="text/javascript">
+            $(document).ready(function() {
+                $("#form_1").submit(function() {
+                    alert("started");
+                    $.ajax({
+                                        type: "POST",
+                                        url: "register.php",
+                                        data: "&prename=" + $("#prename").val() + "&surname=" + $("#surname").val() + "&email=" + $("#email").val() + "&password=" + $("#password").val() + "&tel=" + $("#tel").val(),
+                                        success: function(msg)
+                                        {
+                                            alert(msg);
+                                        }
+                                    });
+                });
+                return false;
+            });
+        </script>
+    </head>
+    <body>
+        
+        
+        
+        <form id="form_1" >
+            
+            <label for="vorname">Prename: </label> 
+            <input type="text" id="prename" maxlength="20"><br>
+
+            <label for="vorname">Surname: </label> 
+            <input type="text" id="surname" maxlength="20"><br>
+
+            <label for="vorname">Email: </label> 
+            <input type="text" id="email" maxlength="20"><br>
+
+            <label for="vorname">Password: </label> 
+            <input type="password" id="password" maxlength="20"><br>
+
+            <label for="vorname">Telephone: </label> 
+            <input type="text" id="tel" maxlength="20"><br>
+
+            <button type="submit">Eingaben absenden</button>
+        </form>
+        
+        
+        
+    </body>
+</html>
